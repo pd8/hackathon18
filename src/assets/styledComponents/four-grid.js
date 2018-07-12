@@ -26,22 +26,22 @@ const Container = styled.div`
 `;
 
 const imageNameToFile = {
-	'OptionTag.NONE': none,
-	'OptionTag.VEGETARIAN': vegetarian,
-	'OptionTag.VEGAN': vegan,
-	'OptionTag.DAIRY_FREE': dairyfree,
-	'OptionTag.BREAKFAST': breakfast,
-	'OptionTag.LUNCH': lunch,
-	'OptionTag.DINNER': dinner,
-	'OptionTag.DESSERT': dessert,
-	'OptionTag.UNDER_500': low,
-	'OptionTag.UNDER_750': medlow,
-	'OptionTag.UNDER_1000': medhigh,
-	'OptionTag.UNDER_2000': high,
-	'OptionTag.BRITISH': english,
-	'OptionTag.AMERICAN': american,
-	'OptionTag.FRENCH': french,
-	'OptionTag.CHINESE': chinese,
+	'NONE': none,
+	'VEGETARIAN': vegetarian,
+	'VEGAN': vegan,
+	'DAIRY_FREE': dairyfree,
+	'BREAKFAST': breakfast,
+	'LUNCH': lunch,
+	'DINNER': dinner,
+	'DESSERT': dessert,
+	'UNDER_500': low,
+	'UNDER_750': medlow,
+	'UNDER_1000': medhigh,
+	'UNDER_2000': high,
+	'BRITISH': english,
+	'AMERICAN': american,
+	'FRENCH': french,
+	'CHINESE': chinese,
 }
 
 const GridBox = styled.div`

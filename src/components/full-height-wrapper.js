@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import fetch from 'node-fetch/browser.js';
 import food from './../assets/images/food.jpeg';
 import Header from './../assets/styledComponents/header';
 import Description from './../assets/styledComponents/description';
@@ -24,11 +25,13 @@ class FullHeightWrapper extends Component {
 	constructor(props) {
 		super(...props);
 
+		this.getQuestions();
+
 		this.state = {
 			progress: 0,
 			currentQuestion: 0,
 			realFoodLink: 'https://realfood.tesco.com/',
-			questions: this.questions,
+			questions: [],
 			results: [],
 			suggestedFood: {
 				title: 'Raspberry smoothie bowl with pomegranate and clementine',
@@ -38,6 +41,20 @@ class FullHeightWrapper extends Component {
 			}
 		}
 	}
+
+	async getQuestions() {
+		let questions = await fetch('http://localhost:7001/getQuestions').then(res => res.json());
+		this.setState({...this.state, questions: questions.questions})
+	};
+
+	async postAnswers(newStateResults) {
+		const foo = '["'+newStateResults.join('","')+'"]';
+		let suggestedFood = await fetch('http://localhost:7001/postAnswers', {
+			method: 'POST',
+			body: foo
+		});
+		this.setState({...this.state, suggestedFood: suggestedFood})
+	};
 
 	startEvt = () => {
 		this.setState({...this.state, currentQuestion: 0, progress: 1, results: []});
@@ -72,6 +89,7 @@ class FullHeightWrapper extends Component {
 		const newStateCurrentQuestion = prevStateCurrentQuestion + 1;
 		const prevStateResults = this.state.results;
 		const newStateResults = [...prevStateResults, item.optionTag];
+		newStateProgress === 2 && this.postAnswers(newStateResults);
 		this.setState({
 			...this.state,
 			currentQuestion: newStateCurrentQuestion,
@@ -80,137 +98,10 @@ class FullHeightWrapper extends Component {
 		});
 	};
 
-	questions = [
-		{
-			"questionPosition": 0,
-			"questionTitle": "diet?",
-			"questionText": "any dietary preferences?",
-			"questionOptions": [
-				{
-					"optionTag": "OptionTag.NONE",
-					"optionText": "none"
-				},
-				{
-					"optionTag": "OptionTag.VEGETARIAN",
-					"optionText": "vegetarian"
-				},
-				{
-					"optionTag": "OptionTag.VEGAN",
-					"optionText": "vegan"
-				},
-				{
-					"optionTag": "OptionTag.DAIRY_FREE",
-					"optionText": "dairy free"
-				}
-			]
-		},
-		{
-			"questionPosition": 1,
-			"questionTitle": "course?",
-			"questionText": "what meal do feel like?",
-			"questionOptions": [
-				{
-					"optionTag": "OptionTag.BREAKFAST",
-					"optionText": "breakfast"
-				},
-				{
-					"optionTag": "OptionTag.LUNCH",
-					"optionText": "lunch"
-				},
-				{
-					"optionTag": "OptionTag.DINNER",
-					"optionText": "dinner"
-				},
-				{
-					"optionTag": "OptionTag.DESSERT",
-					"optionText": "dessert"
-				}
-			]
-		},
-		{
-			"questionPosition": 2,
-			"questionTitle": "cuisine?",
-			"questionText": "where are ya goin' today?",
-			"questionOptions": [
-				{
-					"optionTag": "OptionTag.BRITISH",
-					"optionText": "british"
-				},
-				{
-					"optionTag": "OptionTag.AMERICAN",
-					"optionText": "american"
-				},
-				{
-					"optionTag": "OptionTag.FRENCH",
-					"optionText": "french"
-				},
-				{
-					"optionTag": "OptionTag.CHINESE",
-					"optionText": "chinese"
-				}
-			]
-		},
-		{
-			"questionPosition": 3,
-			"questionTitle": "calories?",
-			"questionText": "going all out?",
-			"questionOptions": [
-				{
-					"optionTag": "OptionTag.UNDER_500",
-					"optionText": "something light..."
-				},
-				{
-					"optionTag": "OptionTag.UNDER_750",
-					"optionText": "I'm pretty hungry..."
-				},
-				{
-					"optionTag": "OptionTag.UNDER_1000",
-					"optionText": "bring it on!"
-				},
-				{
-					"optionTag": "OptionTag.UNDER_2000",
-					"optionText": "the sky is the limit"
-				}
-			]
-		},
-		{
-			"questionPosition": 4,
-			"questionTitle": "time?",
-			"questionText": "how long have you got?",
-			"questionOptions": [
-				{
-					"optionTag": "OptionTag.UNDER_30_MINUTES",
-					"optionText": "I'm in a rush"
-				},
-				{
-					"optionTag": "OptionTag.BETWEEN_30_60",
-					"optionText": "I've got a bit of time"
-				},
-				{
-					"optionTag": "OptionTag.OVER_1_HOUR",
-					//TO-DO: change me plz
-					"optionText": "void"
-				}
-			]
-		},
-		{
-			"questionPosition": 5,
-			"questionTitle": "taste?",
-			"questionText": "what are you in the mood for?",
-			"questionOptions": [
-				{
-					"optionTag": "OptionTag.SAVOURY",
-					"optionText": "savoury"
-				},
-				{
-					"optionTag": "OptionTag.SWEET",
-					"optionText": "sweet"
-				},
-			]
-		}
-	];
-
 	render() {
+		{
+			console.log(this.state);
+		}
 		return (
 			<Container>
 				{this.state.progress === 0 &&
@@ -231,17 +122,17 @@ class FullHeightWrapper extends Component {
 				{
 					this.state.progress === 1 && this.state.questions[this.state.currentQuestion].questionOptions.length === 4 && (
 						<FourGrid array={this.state.questions[this.state.currentQuestion].questionOptions}
-											styles={{'height': '500px'}} onClick={this.clickEvt}/>)
+											 onClick={this.clickEvt}/>)
 				}
 				{
 					this.state.progress === 1 && this.state.questions[this.state.currentQuestion].questionOptions.length === 3 && (
 						<ThreeGrid array={this.state.questions[this.state.currentQuestion].questionOptions}
-											 styles={{'height': '500px'}} onClick={this.clickEvt}/>)
+											  onClick={this.clickEvt}/>)
 				}
 				{
 					this.state.progress === 1 && this.state.questions[this.state.currentQuestion].questionOptions.length === 2 && (
 						<ThreeGrid array={this.state.questions[this.state.currentQuestion].questionOptions}
-											 styles={{'height': '500px'}} onClick={this.clickEvt}/>)
+											 onClick={this.clickEvt}/>)
 				}
 				{this.state.progress === 2 &&
 				(
@@ -258,7 +149,7 @@ class FullHeightWrapper extends Component {
 					<Nav
 						goBack={this.state.progress === 1 && this.state.currentQuestion !== 0}
 						goForward={this.state.progress === 1}
-						restart={this.state.progress === 1 || this.state.progress === 2}
+						restart={(this.state.progress === 1 || this.state.progress === 2)}
 						backEvt={this.backEvt}
 						restartEvt={this.restartEvt}
 						nextEvt={this.nextEvt}

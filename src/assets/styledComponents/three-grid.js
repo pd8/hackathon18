@@ -15,11 +15,11 @@ const Container = styled.div`
 `;
 
 const imageNameToFile = {
-	'OptionTag.UNDER_30_MINUTES': cooklow,
-	'OptionTag.BETWEEN_30_60': cookmed,
-	'OptionTag.OVER_1_HOUR': cookhigh,
-	'OptionTag.SWEET': sweet,
-	'OptionTag.SAVOURY': savoury
+	'UNDER_30_MINUTES': cooklow,
+	'BETWEEN_30_60': cookmed,
+	'OVER_1_HOUR': cookhigh,
+	'SWEET': sweet,
+	'SAVOURY': savoury
 }
 
 const GridBox = styled.div`
