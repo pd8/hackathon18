@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06bd4d1-ec87-4e51-a29c-7115e9a684eb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styledComponents/four-grid.js" afterPath="$PROJECT_DIR$/src/assets/styledComponents/four-grid.js" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styledComponents/three-grid.js" afterPath="$PROJECT_DIR$/src/assets/styledComponents/three-grid.js" />
       <change beforePath="$PROJECT_DIR$/src/components/full-height-wrapper.js" afterPath="$PROJECT_DIR$/src/components/full-height-wrapper.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/registerServiceWorker.js" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +16,8 @@
       <file leaf-file-name="full-height-wrapper.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/full-height-wrapper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="333">
+              <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -271,12 +264,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531385752245</updated>
-      <workItem from="1531385753964" duration="40827000" />
+      <workItem from="1531385753964" duration="41316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40827000" />
+    <option name="totallyTimeSpent" value="41316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -503,8 +496,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/full-height-wrapper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="333">
+          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

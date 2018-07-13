@@ -52,8 +52,14 @@ class FullHeightWrapper extends Component {
 		let suggestedFood = await fetch('http://localhost:7001/postAnswers', {
 			method: 'POST',
 			body: foo
-		});
-		this.setState({...this.state, suggestedFood: suggestedFood})
+		}).then(res => res.json());
+		const formattedSuggestedFood = {
+			title: suggestedFood.recipeTitle,
+			description: suggestedFood.recipeDescription,
+			imageURL: suggestedFood.recipeImage,
+			realFoodLink: suggestedFood.realFoodUrl
+		};
+		this.setState({...this.state, suggestedFood: formattedSuggestedFood})
 	};
 
 	startEvt = () => {
