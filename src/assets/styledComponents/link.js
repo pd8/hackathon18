@@ -12,9 +12,9 @@ const Link = styled.a`
 	//blue 00539f
 `;
 
-const LinkComponent = ({id, text, additionalStyles, link}) => {
+const LinkComponent = ({id, text, additionalStyles, link, target}) => {
 	return (
-		<Link id={id} style={additionalStyles} href={link}>
+		<Link id={id} style={additionalStyles} href={link} target={target}>
 			{text}
 		</Link>
 	);

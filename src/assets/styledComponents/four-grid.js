@@ -4,18 +4,14 @@ import english from './../images/cuisine/english.jpeg';
 import american from './../images/cuisine/american.jpeg';
 import french from './../images/cuisine/french.jpg';
 import chinese from './../images/cuisine/chinese.jpeg';
-import none from './../images/diet/none.jpg';
+import wheatfree from './../images/diet/wheatfee.jpeg';
 import vegetarian from './../images/diet/veg.jpeg';
-import vegan from './../images/diet/vegan.jpeg';
+import eggfree from './../images/diet/eggfree.jpeg';
 import dairyfree from './../images/diet/dairyfree.jpeg';
 import breakfast from './../images/course/breakfast.jpeg';
 import lunch from './../images/course/lunch.jpg';
 import dinner from './../images/course/dinner.jpeg';
 import dessert from './../images/course/dessert.jpg';
-import low from './../images/calorie/low.jpg';
-import medlow from './../images/calorie/medlow.jpeg';
-import medhigh from './../images/calorie/medhigh.jpeg';
-import high from './../images/calorie/high.jpeg';
 
 const Container = styled.div`
 	width: 100%;
@@ -26,18 +22,14 @@ const Container = styled.div`
 `;
 
 const imageNameToFile = {
-	'NONE': none,
+	'WHEAT_FREE': wheatfree,
 	'VEGETARIAN': vegetarian,
-	'VEGAN': vegan,
+	'EGG_FREE': eggfree,
 	'DAIRY_FREE': dairyfree,
 	'BREAKFAST': breakfast,
 	'LUNCH': lunch,
 	'DINNER': dinner,
 	'DESSERT': dessert,
-	'UNDER_500': low,
-	'UNDER_750': medlow,
-	'UNDER_1000': medhigh,
-	'UNDER_2000': high,
 	'BRITISH': english,
 	'AMERICAN': american,
 	'FRENCH': french,

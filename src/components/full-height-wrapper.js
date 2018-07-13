@@ -21,6 +21,21 @@ const Container = styled.div`
 	flex-direction: column;
 `;
 
+const SpinnerContainer = styled.div`
+	flex-grow: 1;
+	width: 100%;
+`;
+
+const Spinner = styled.div`
+	border: 16px solid #f3f3f3; /* Light grey */
+	border-top: 16px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+	margin: ${(window.innerHeight - 180) / 2}px auto auto auto;
+`;
+
 class FullHeightWrapper extends Component {
 	constructor(props) {
 		super(...props);
@@ -30,14 +45,11 @@ class FullHeightWrapper extends Component {
 		this.state = {
 			progress: 0,
 			currentQuestion: 0,
+			loading: 1,
 			realFoodLink: 'https://realfood.tesco.com/',
 			questions: [],
 			results: [],
 			suggestedFood: {
-				title: 'Raspberry smoothie bowl with pomegranate and clementine',
-				description: 'Smoothie bowls are a kind of fruity soup that make a nutrition-packed start to the day. Any range of toppings can work, but we suggest a blend of your favourite fruit topped with crunchy extras such as oats, nuts and seeds, plus other good stuff like yogurt. Get started with this zingy version – a vibrant smoothie recipe and brilliant breakfast idea.',
-				imageURL: 'https://realfood.tesco.com/media/images/RFO-RaspberrySmoothieBowl-1400x919-2a9fe1db-00d7-42ef-9fcb-17e23ba76e33-0-1400x919.jpg',
-				realFoodLink: 'https://realfood.tesco.com/recipes/raspberry-smoothie-bowl-with-pomegranate-and-clementine.html'
 			}
 		}
 	}
@@ -59,11 +71,11 @@ class FullHeightWrapper extends Component {
 			imageURL: suggestedFood.recipeImage,
 			realFoodLink: suggestedFood.realFoodUrl
 		};
-		this.setState({...this.state, suggestedFood: formattedSuggestedFood})
+		this.setState({...this.state, loading: 0, suggestedFood: formattedSuggestedFood})
 	};
 
 	startEvt = () => {
-		this.setState({...this.state, currentQuestion: 0, progress: 1, results: []});
+		this.setState({...this.state, currentQuestion: 0, progress: 1, results: [], suggestedFood: {}});
 	};
 
 	backEvt = () => {
@@ -79,13 +91,18 @@ class FullHeightWrapper extends Component {
 	};
 
 	restartEvt = () => {
-		this.setState({...this.state, currentQuestion: 0, progress: 0, results: []});
+		this.setState({...this.state, currentQuestion: 0, progress: 0, results: [], suggestedFood: {}, loading: 1});
 	};
 
 	nextEvt = () => {
 		const prevStateCurrentQuestion = this.state.currentQuestion;
 		const newStateCurrentQuestion = prevStateCurrentQuestion + 1;
 		const newStateProgress = prevStateCurrentQuestion === this.state.questions.length - 1 ? 2 : 1;
+		if (newStateProgress === 2 && this.state.results.length === 0) {
+			this.restartEvt();
+			return;
+		}
+		newStateProgress === 2 && this.postAnswers(this.state.results);
 		this.setState({...this.state, currentQuestion: newStateCurrentQuestion, progress: newStateProgress});
 	};
 
@@ -95,6 +112,10 @@ class FullHeightWrapper extends Component {
 		const newStateCurrentQuestion = prevStateCurrentQuestion + 1;
 		const prevStateResults = this.state.results;
 		const newStateResults = [...prevStateResults, item.optionTag];
+		if (newStateProgress === 2 && newStateResults.length === 0) {
+			this.restartEvt();
+			return;
+		}
 		newStateProgress === 2 && this.postAnswers(newStateResults);
 		this.setState({
 			...this.state,
@@ -114,7 +135,7 @@ class FullHeightWrapper extends Component {
 				(
 					<Start
 						title="Hungry?"
-						description="Hungry and don't know what you want to eat? No Problem! Using this handy web app you'll be able to decide on your next meal in a just one minute!"
+						description="Hungry and don't know what you want to eat? No Problem! Using this handy web app you'll be able to decide on your next meal in just one minute!"
 						buttonText="Begin the journey"
 						realFoodLink={this.state.realFoodLink}
 						buttonClickEvt={this.startEvt}
@@ -140,7 +161,14 @@ class FullHeightWrapper extends Component {
 						<ThreeGrid array={this.state.questions[this.state.currentQuestion].questionOptions}
 											 onClick={this.clickEvt}/>)
 				}
-				{this.state.progress === 2 &&
+				{
+					this.state.loading === 1 && this.state.progress === 2 &&
+						(
+							<SpinnerContainer ><Spinner /></SpinnerContainer>
+						)
+				}
+				{
+					this.state.loading === 0 && this.state.progress === 2 &&
 				(
 					<Result
 						title={this.state.suggestedFood.title}
@@ -150,7 +178,8 @@ class FullHeightWrapper extends Component {
 					/>
 				)
 				}
-				{(this.state.progress === 1 || this.state.progress === 2) &&
+				{
+					(this.state.progress === 1 || this.state.progress === 2) &&
 				(
 					<Nav
 						goBack={this.state.progress === 1 && this.state.currentQuestion !== 0}

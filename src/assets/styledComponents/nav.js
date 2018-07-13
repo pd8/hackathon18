@@ -63,7 +63,7 @@ const Nav = ({goBack, goForward, restart, backEvt, restartEvt, nextEvt}) => {
 						width={width}
 						onClick={nextEvt}
 					>
-						next
+						skip
 					</Box>
 				)
 			}

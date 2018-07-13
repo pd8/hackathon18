@@ -20,7 +20,7 @@ const Result = ({title, description, realFoodLink, imageURL}) => [
 	<Header text={title} key="title" additionalStyles={{'fontSize': '1.6rem'}} />,
 	<Image url={imageURL} key="image" />,
 	<Description text={description} key="description" additionalStyles={{'fontSize': '1.2rem'}} />,
-	<Link text="View on the RealFood website" link={realFoodLink} key="More like this" additionalStyles={{'margin': '20px auto 12px auto'}}/>,
+	<Link text="View on the RealFood website" link={realFoodLink} key="More like this" additionalStyles={{'margin': '20px auto 12px auto'}} target="_blank"/>,
 ];
 
 export default Result;

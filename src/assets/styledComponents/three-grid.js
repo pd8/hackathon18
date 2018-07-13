@@ -5,6 +5,9 @@ import cookmed from './../images/cooktime/cookmed.jpeg';
 import cookhigh from './../images/cooktime/cookhigh.jpeg';
 import sweet from './../images/taste/sweet.jpeg';
 import savoury from './../images/taste/savoury.jpeg';
+import low from './../images/calorie/low.jpg';
+import medhigh from './../images/calorie/medhigh.jpeg';
+import high from './../images/calorie/high.jpeg';
 
 const Container = styled.div`
 	width: 100%;
@@ -19,7 +22,10 @@ const imageNameToFile = {
 	'BETWEEN_30_60': cookmed,
 	'OVER_1_HOUR': cookhigh,
 	'SWEET': sweet,
-	'SAVOURY': savoury
+	'SAVOURY': savoury,
+	'UNDER_500': low,
+	'UNDER_1000': medhigh,
+	'UNDER_2000': high
 }
 
 const GridBox = styled.div`
