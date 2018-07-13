@@ -27,13 +27,13 @@ const SpinnerContainer = styled.div`
 `;
 
 const Spinner = styled.div`
-	border: 16px solid #f3f3f3; /* Light grey */
-	border-top: 16px solid #3498db; /* Blue */
+	border: 8px solid #f3f3f3; /* Light grey */
+	border-top: 8px solid #00539f; /* Blue */
 	border-radius: 50%;
-	width: 120px;
-	height: 120px;
+	width: 60px;
+	height: 60px;
 	animation: spin 2s linear infinite;
-	margin: ${(window.innerHeight - 180) / 2}px auto auto auto;
+	margin: ${(window.innerHeight - 120) / 2}px auto auto auto;
 `;
 
 class FullHeightWrapper extends Component {
