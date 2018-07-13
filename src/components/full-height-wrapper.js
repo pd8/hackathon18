@@ -71,6 +71,7 @@ class FullHeightWrapper extends Component {
 			imageURL: suggestedFood.recipeImage,
 			realFoodLink: suggestedFood.realFoodUrl
 		};
+		console.log(formattedSuggestedFood);
 		this.setState({...this.state, loading: 0, suggestedFood: formattedSuggestedFood})
 	};
 
@@ -92,6 +93,11 @@ class FullHeightWrapper extends Component {
 
 	restartEvt = () => {
 		this.setState({...this.state, currentQuestion: 0, progress: 0, results: [], suggestedFood: {}, loading: 1});
+	};
+
+	retryEvt = () => {
+		const prevStateResults = this.state.results;
+		this.postAnswers(prevStateResults);
 	};
 
 	nextEvt = () => {
@@ -188,6 +194,7 @@ class FullHeightWrapper extends Component {
 						backEvt={this.backEvt}
 						restartEvt={this.restartEvt}
 						nextEvt={this.nextEvt}
+						retryEvt={this.retryEvt}
 					/>
 				)
 				}

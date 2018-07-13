@@ -30,8 +30,8 @@ const Box = styled.div`
 	}
 `;
 
-const Nav = ({goBack, goForward, restart, backEvt, restartEvt, nextEvt}) => {
-	const width = goBack && goForward && restart ? (100/3) : (100);
+const Nav = ({goBack, goForward, restart, backEvt, restartEvt, nextEvt, retryEvt}) => {
+	const width = goBack && goForward && restart ? (100/3) : (100/2);
 	return (
 		<Container>
 			{
@@ -53,6 +53,17 @@ const Nav = ({goBack, goForward, restart, backEvt, restartEvt, nextEvt}) => {
 						onClick={restartEvt}
 					>
 						restart
+					</Box>
+				)
+			}
+			{
+				(restart && !goBack) &&
+				(
+					<Box
+						width={width}
+						onClick={retryEvt}
+					>
+						retry
 					</Box>
 				)
 			}
