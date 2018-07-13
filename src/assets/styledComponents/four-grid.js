@@ -52,6 +52,10 @@ const GridBox = styled.div`
   &:active {
   	outline: none;
   }
+  
+  &:hover {
+  	cursor: pointer;
+  }
 `;
 
 const GridBox__Inner = styled.div`

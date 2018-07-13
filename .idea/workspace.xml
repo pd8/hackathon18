@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06bd4d1-ec87-4e51-a29c-7115e9a684eb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styledComponents/nav.js" afterPath="$PROJECT_DIR$/src/assets/styledComponents/nav.js" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styledComponents/four-grid.js" afterPath="$PROJECT_DIR$/src/assets/styledComponents/four-grid.js" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styledComponents/three-grid.js" afterPath="$PROJECT_DIR$/src/assets/styledComponents/three-grid.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nav.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/nav.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
@@ -49,8 +49,8 @@
       <file leaf-file-name="three-grid.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/three-grid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+            <state relative-caret-position="576">
+              <caret line="49" column="3" lean-forward="true" selection-start-line="47" selection-start-column="2" selection-end-line="49" selection-end-column="3" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="four-grid.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="four-grid.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/four-grid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            <state relative-caret-position="458">
+              <caret line="57" column="3" lean-forward="false" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="3" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -161,11 +161,11 @@
         <option value="$PROJECT_DIR$/src/assets/styledComponents/link.js" />
         <option value="$PROJECT_DIR$/src/assets/styledComponents/result.js" />
         <option value="$PROJECT_DIR$/src/assets/css/App.css" />
-        <option value="$PROJECT_DIR$/src/assets/styledComponents/three-grid.js" />
-        <option value="$PROJECT_DIR$/src/assets/styledComponents/four-grid.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/full-height-wrapper.js" />
         <option value="$PROJECT_DIR$/src/assets/styledComponents/nav.js" />
+        <option value="$PROJECT_DIR$/src/assets/styledComponents/three-grid.js" />
+        <option value="$PROJECT_DIR$/src/assets/styledComponents/four-grid.js" />
       </list>
     </option>
   </component>
@@ -370,12 +370,12 @@
       <option name="presentableId" value="Default" />
       <updated>1531385752245</updated>
       <workItem from="1531385753964" duration="46047000" />
-      <workItem from="1531475516077" duration="28000" />
+      <workItem from="1531475516077" duration="124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46075000" />
+    <option name="totallyTimeSpent" value="46171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -527,26 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/three-grid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/four-grid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -592,6 +572,26 @@
         <state relative-caret-position="427">
           <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/three-grid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="49" column="3" lean-forward="true" selection-start-line="47" selection-start-column="2" selection-end-line="49" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styledComponents/four-grid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="57" column="3" lean-forward="false" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
