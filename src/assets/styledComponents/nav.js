@@ -57,7 +57,7 @@ const Nav = ({goBack, goForward, restart, backEvt, restartEvt, nextEvt, retryEvt
 				)
 			}
 			{
-				(restart && !goBack) &&
+				(restart && !goForward) &&
 				(
 					<Box
 						width={width}
