@@ -38,6 +38,7 @@ const GridBox = styled.div`
   border-radius: 5px;
   background-size: cover;
   background-position: center;
+  background-color: #333333b3;
   box-shadow: 1px 1px 1px 1px rgba(30,30,30,0.6);
   
   &:active {

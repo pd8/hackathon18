@@ -55,13 +55,13 @@ class FullHeightWrapper extends Component {
 	}
 
 	async getQuestions() {
-		let questions = await fetch('http://localhost:7001/getQuestions').then(res => res.json());
+		let questions = await fetch('http://ec2-52-208-100-245.eu-west-1.compute.amazonaws.com:7001/getQuestions').then(res => res.json());
 		this.setState({...this.state, questions: questions.questions})
 	};
 
 	async postAnswers(newStateResults) {
 		const foo = '["'+newStateResults.join('","')+'"]';
-		let suggestedFood = await fetch('http://localhost:7001/postAnswers', {
+		let suggestedFood = await fetch('http://ec2-52-208-100-245.eu-west-1.compute.amazonaws.com:7001/postAnswers', {
 			method: 'POST',
 			body: foo
 		}).then(res => res.json());
